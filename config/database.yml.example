@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  username:
+  password:
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: brickyard_api_development
+
+test:
+  <<: *default
+  database: brickyard_api_test
+
+production:
+  <<: *default
+  database: brickyard_api_production
+  username: brickyard_api
+  password: <%= ENV['BRICKYARD_API_DATABASE_PASSWORD'] %>
