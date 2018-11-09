@@ -9,6 +9,7 @@ ruby '2.5.1'
 
 gem 'bcrypt', '~> 3.1.7'
 gem 'dotenv-rails', '~> 2.2', '>= 2.2.1'
+gem 'jwt', '~> 2.1'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.7'
 gem 'rack-cors', '~> 1.0', '>= 1.0.2'
@@ -30,6 +31,7 @@ end
 
 group :test do
   gem 'database_cleaner', '~> 1.6', '>= 1.6.1'
+  gem 'shoulda-callback-matchers', '~> 1.1', '>= 1.1.4'
   gem 'shoulda-matchers', '~> 3.1', '>= 3.1.2'
 end
 
