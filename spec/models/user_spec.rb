@@ -10,4 +10,8 @@ RSpec.describe User, type: :model do
   describe 'Callbacks' do
     it { is_expected.to callback(:set_default_values).after(:initialize) }
   end
+
+  describe 'Associations' do
+    it { should have_many(:vehicles).dependent(:destroy) }
+  end
 end
