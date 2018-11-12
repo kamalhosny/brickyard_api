@@ -8,7 +8,7 @@ WORKDIR /brickyard_api
 COPY Gemfile /brickyard_api/Gemfile
 COPY Gemfile.lock /brickyard_api/Gemfile.lock
 
-RUN bundler install
+RUN bundle install
 
 COPY . /brickyard_api
 
