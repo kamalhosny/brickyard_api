@@ -1,0 +1,16 @@
+version: '3'
+services:
+  db:
+    image: postgres:9.6-alpine
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+
+  web:
+    build: .
+    entrypoint: ./.docker/api_entry_point.sh
+    volumes:
+      - .:/brickyard_api
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
