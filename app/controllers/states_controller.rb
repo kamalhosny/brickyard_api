@@ -1,11 +1,15 @@
 class StatesController < ApplicationController
   before_action :authenticate_admin, only: %i[create update destroy]
-  before_action :prepare_state, only: %i[update destroy]
+  before_action :prepare_state, only: %i[show update destroy]
 
   def index
-    states = State.all
+    states = State.all.order(:order)
 
     render json: states
+  end
+
+  def show
+    render json: @state
   end
 
   def create
@@ -13,7 +17,7 @@ class StatesController < ApplicationController
     if state.save
       render json: state, status: :created
     else
-      render json: state.errors, status: :unprocessable_entity
+      render json: state.errors.full_messages, status: :unprocessable_entity
     end
   end
 
@@ -21,7 +25,7 @@ class StatesController < ApplicationController
     if @state.update(state_params)
       render json: @state
     else
-      render json: @state.errors, status: :unprocessable_entity
+      render json: @state.errors.full_messages, status: :unprocessable_entity
     end
   end
 

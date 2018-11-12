@@ -3,8 +3,8 @@ class SessionsController < ApplicationController
 
   # LogIn
   def create
-    auth_token = AuthenticateUser.new(prepare_auth_params).call
-    render json: { auth_token: auth_token }, status: :ok
+    result = AuthenticateUser.new(prepare_auth_params).call
+    render json: result, status: :ok
   end
 
   private

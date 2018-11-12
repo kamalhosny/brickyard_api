@@ -7,6 +7,7 @@ end
 
 ruby '2.5.1'
 
+gem 'acts_as_list', '~> 0.7.2'
 gem 'bcrypt', '~> 3.1.7'
 gem 'dotenv-rails', '~> 2.2', '>= 2.2.1'
 gem 'jwt', '~> 2.1'

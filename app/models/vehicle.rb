@@ -8,7 +8,7 @@ class Vehicle < ApplicationRecord
   validate :current_state_order, if: :current_state_id_changed?, on: :update
 
   ## Callbacks
-  after_initialize :set_default_values
+  after_initialize :set_default_values, unless: :persisted?
 
   ## Mehtods
 

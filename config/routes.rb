@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   resources :users, only: :show do
     resources :vehicles
   end
-  resources :states, only: %i[index create update destroy]
+  resources :states
 end
